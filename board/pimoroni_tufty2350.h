@@ -116,7 +116,7 @@
 
 // pico_cmake_set_default PICO_FLASH_SIZE_BYTES = (16 * 1024 * 1024)
 #ifndef PICO_FLASH_SIZE_BYTES
-#define PICO_FLASH_SIZE_BYTES (16 * 1024 * 1024)
+#define PICO_FLASH_SIZE_BYTES (8 * 1024 * 1024)
 #endif
 
 // --- CYW43 ---
@@ -164,5 +164,6 @@
 #ifndef CYW43_DEFAULT_PIN_WL_CS
 #define CYW43_DEFAULT_PIN_WL_CS 25u
 #endif
+
 
 #endif
