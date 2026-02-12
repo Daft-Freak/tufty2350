@@ -2,7 +2,12 @@
 #define MICROPY_HW_BOARD_NAME                   "Pimoroni Tufty 2350"
 
 #define MICROPY_HW_ROMFS_BYTES                  (1 * 1024 * 1024)
-#define MICROPY_HW_FLASH_STORAGE_BYTES          (PICO_FLASH_SIZE_BYTES - (2 * 1024 * 1024) - MICROPY_HW_ROMFS_BYTES)
+//#define MICROPY_HW_FLASH_STORAGE_BYTES          (PICO_FLASH_SIZE_BYTES - (2 * 1024 * 1024) - MICROPY_HW_ROMFS_BYTES)
+
+// 2MB micropython + 1MB ROMFS + 5MB gap + 7MB FAT + 1MB littlefs
+#define MICROPY_HW_FLASH_STORAGE_BASE (8 * 1024 * 1024)
+#define MICROPY_HW_FLASH_STORAGE_BYTES (8 * 1024 * 1024)
+#define MICROPY_HW_ROMFS_BASE (2 * 1024 * 1024)
 
 #define MICROPY_OBJ_REPR (MICROPY_OBJ_REPR_C)
 
@@ -43,4 +48,5 @@ int mp_hal_is_pin_reserved(int n);
 #define MICROPY_HW_USB_MSC                      (1)
 #define MICROPY_HW_USB_DESC_STR_MAX             (40)
 #define MICROPY_HW_USB_MANUFACTURER_STRING      "Pimoroni"
+
 #define MICROPY_HW_USB_PRODUCT_FS_STRING        MICROPY_HW_BOARD_NAME " MicroPython"
